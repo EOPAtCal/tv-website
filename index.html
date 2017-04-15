@@ -34,25 +34,25 @@
                 "heading": "Resource Name A",
                 "description": "description for A",
                 "link": "Link to flyer/form",
-                "link-url": "google.com",
+                "link_url": "https://www.google.com",
             },
             {
                 "heading": "Resource Name B",
                 "description": "description for B",
                 "link": "Link to flyer/form",
-                "link-url": "google.com",
+                "link_url": "https://google.com",
             },
             {
                 "heading": "Resource Name C",
                 "description": "description for C",
                 "link": "Link to flyer/form",
-                "link-url": "google.com",
+                "link_url": "https://google.com",
             },
             {
                 "heading": "Resource Name D",
                 "description": "description for D",
                 "link": "Link to flyer/form",
-                "link-url": "google.com",
+                "link_url": "https://google.com",
             },
         ]
     });
@@ -67,7 +67,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100vw;
+        width: 100%;
         height: 100%;
         z-index: -2;
     }
@@ -77,17 +77,20 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100vw;
+        width: 100%;
         height: 100%;
         z-index: -1;
     }
     .box{
         background-color: white;
-        border: 1px solid #DDD;
+        /*border: 1px solid #DDD;*/
         -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
         -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
         box-shadow: 0 1px 5px rgba(0,0,0,0.1);
         margin-bottom: 30px;
+    }
+    .padding-sm{
+        padding: 15px;
     }
     .padding{
         padding: 30px;
@@ -112,22 +115,34 @@
     a:hover{
         cursor: pointer;
     }
+    #heading .box{
+        background-color: #00A598;
+    }
+    #heading img{
+        width:120px;
+        border: 3px solid white;
+    }
+    #heading h1{
+        display: inline-block;
+        vertical-align:middle;
+        margin-left: 20px;
+        font-size: 40px;
+        color: white;
+    }
 </style>
 
 <body>
     <div id="background"></div>
     <div id="background-overlay"></div>
     
-    <div class="container" ng-app="app" ng-controller="app-controller">
-        <div style="height: 30px;"></div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box">
-                    <img src="https://avatars1.githubusercontent.com/u/26936142?v=3" style="width:200px;"></img>
-                    <h1 style="display: inline-block; vertical-align:middle;"><strong>Welcome to the EOP Office!</strong></h1>
-                </div>
-            </div>
+    <div class="text-center" id="heading">
+        <div class="box padding-sm">
+            <img src="logo.jpg"></img>
+            <h1><strong>Welcome to the EOP Office!</strong></h1>
         </div>
+    </div>
+
+    <div class="container" ng-app="app" ng-controller="app-controller">
         <div class="row">
             <div ng-repeat="box in boxes">
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
@@ -137,7 +152,7 @@
                         <hr/>
                         <div>{{box.description}}</div>
                         <div style="height: 15px;"></div>
-                        <a ng-if="box.link" ng-href="{{box.link-url}}">{{box.link}}</a>
+                        <a ng-if="box.link && box.link_url" ng-href="{{box.link_url}}">{{box.link}}</a>
                     </div>
                 </div>
             </div>
