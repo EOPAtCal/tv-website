@@ -115,9 +115,6 @@
     a:hover{
         cursor: pointer;
     }
-    #heading .box{
-        background-color: #00A598;
-    }
     #heading img{
         width:120px;
         border: 3px solid white;
@@ -129,6 +126,15 @@
         font-size: 40px;
         color: white;
     }
+    .color-white{
+        color: white;
+    }
+    .bgcolor-laplane{
+        background-color: #00A598;
+    }
+    .bgcolor-laplane a{
+        color: white;
+    }
 </style>
 
 <body>
@@ -136,13 +142,20 @@
     <div id="background-overlay"></div>
     
     <div class="text-center" id="heading">
-        <div class="box padding-sm">
+        <div class="box bgcolor-laplane padding-sm">
             <img src="logo.jpg"></img>
             <h1><strong>Welcome to the EOP Office!</strong></h1>
         </div>
     </div>
 
     <div class="container" ng-app="app" ng-controller="app-controller">
+        <h1 class="color-white"><strong>Appointments</strong></h1>
+        <div style="margin-bottom:20px"></div>
+        <div class="box bgcolor-laplane color-white padding" style="display: table"><h3><a href="">Tap to make an appointment</a></h3></div>
+
+        <h1 class="color-white"><strong>Resources</strong></h1>
+        <div style="margin-bottom:20px"></div>
+
         <div class="row">
             <div ng-repeat="box in boxes">
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
